@@ -3,7 +3,7 @@
     Pure and reproducible overlay for firefox.
   '';
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { ... }: {
     overlay = import ./overlay.nix;
   };
 }
