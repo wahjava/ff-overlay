@@ -61,6 +61,10 @@ in {
 }
 EOF
 
-git commit -m '[automated] Update' ./overlay.nix
+if git status --porcelain | fgrep -qw overlay.nix; then
+  git commit -m '[automated] Update' ./overlay.nix
+else
+  echo No changes to commit.
+fi
 
 rm -f $JSON_FILE
