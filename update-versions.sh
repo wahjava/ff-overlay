@@ -8,7 +8,7 @@ curl -o $JSON_FILE -s https://product-details.mozilla.org/1.0/firefox_versions.j
 LATEST_FIREFOX_VERSION=$(cat $JSON_FILE |jq -r .LATEST_FIREFOX_VERSION)
 LATEST_FIREFOX_DEVEL_VERSION=$(cat $JSON_FILE |jq -r .LATEST_FIREFOX_DEVEL_VERSION)
 
-if [[ -z "$LATEST_FIREFOX_VERSION" -o -z "$LATEST_FIREFOX_DEVEL_VERSION" ]]; then
+if [[ -z "$LATEST_FIREFOX_VERSION" || -z "$LATEST_FIREFOX_DEVEL_VERSION" ]]; then
     echo Bad firefox_versions.json: $JSON_FILE
     exit 1
 fi
@@ -16,7 +16,7 @@ fi
 LATEST_FIREFOX_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.bz2" { print $1; }')
 LATEST_FIREFOX_DEVEL_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_DEVEL_VERSION}'.tar.bz2" { print $1; }')
 
-if [[ -z "$LATEST_FIREFOX_SHA512SUM" -o -z "$LATEST_FIREFOX_DEVEL_SHA512SUM" ]]; then
+if [[ -z "$LATEST_FIREFOX_SHA512SUM" || -z "$LATEST_FIREFOX_DEVEL_SHA512SUM" ]]; then
     echo Missing checksums
     exit 1
 fi
