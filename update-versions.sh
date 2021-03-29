@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash --pure -p jq -p curl -p git -p nixfmt -p bash
 
-set -ue
+set -euo pipefail
 
 JSON_FILE=$(mktemp)
 curl -o $JSON_FILE -s https://product-details.mozilla.org/1.0/firefox_versions.json
