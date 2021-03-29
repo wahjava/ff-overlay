@@ -3,6 +3,8 @@
 
 set -euo pipefail
 
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 JSON_FILE=$(mktemp)
 curl -o $JSON_FILE -s https://product-details.mozilla.org/1.0/firefox_versions.json
 LATEST_FIREFOX_VERSION=$(cat $JSON_FILE |jq -r .LATEST_FIREFOX_VERSION)
