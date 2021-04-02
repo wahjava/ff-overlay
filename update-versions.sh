@@ -38,25 +38,27 @@ let
 in {
   firefox-stable = let
     version = "$LATEST_FIREFOX_VERSION";
-    url = "$LATEST_FIREFOX_TARBALL";
-    sha512 = "$LATEST_FIREFOX_SHA512SUM";
+    sources = {
+      url = "$LATEST_FIREFOX_TARBALL";
+      sha512 = "$LATEST_FIREFOX_SHA512SUM";
+    };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = {
-      inherit version;
-      sources = { inherit url sha512; };
+      inherit version sources;
     };
-  }).overrideAttrs (old: { src = super.fetchurl { inherit url sha512; }; }))
+  }).overrideAttrs (old: { src = super.fetchurl sources; }))
   common;
   firefox-devel = let
     version = "$LATEST_FIREFOX_DEVEL_VERSION";
-    url = "$LATEST_FIREFOX_DEVEL_TARBALL";
-    sha512 = "$LATEST_FIREFOX_DEVEL_SHA512SUM";
+    sources = {
+      url = "$LATEST_FIREFOX_DEVEL_TARBALL";
+      sha512 = "$LATEST_FIREFOX_DEVEL_SHA512SUM";
+    };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = {
-      inherit version;
-      sources = { inherit url sha512; };
+      inherit version sources;
     };
-  }).overrideAttrs (old: { src = super.fetchurl { inherit url sha512; }; }))
+  }).overrideAttrs (old: { src = super.fetchurl sources; }))
   common;
 }
 EOF
