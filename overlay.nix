@@ -9,28 +9,24 @@ let
 in {
   firefox-stable = let
     version = "87.0";
-    url =
-      "https://download.cdn.mozilla.net/pub/firefox/releases/87.0/linux-x86_64/en-US/firefox-87.0.tar.bz2";
-    sha512 =
-      "4958637e4f5f73d7c7ceab2a0c4fd1aa1c88954432320432a7707e6de042349cee1aac2af3afc8548a88fb00f2e4023a80a7f2cea4383d3ea43aeeaaff94a9b3";
-  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
-    generated = {
-      inherit version;
-      sources = { inherit url sha512; };
+    sources = {
+      url =
+        "https://download.cdn.mozilla.net/pub/firefox/releases/87.0/linux-x86_64/en-US/firefox-87.0.tar.bz2";
+      sha512 =
+        "4958637e4f5f73d7c7ceab2a0c4fd1aa1c88954432320432a7707e6de042349cee1aac2af3afc8548a88fb00f2e4023a80a7f2cea4383d3ea43aeeaaff94a9b3";
     };
-  }).overrideAttrs (old: { src = super.fetchurl { inherit url sha512; }; }))
-  common;
+  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
+    generated = { inherit version sources; };
+  }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
     version = "88.0b6";
-    url =
-      "https://download.cdn.mozilla.net/pub/firefox/releases/88.0b6/linux-x86_64/en-US/firefox-88.0b6.tar.bz2";
-    sha512 =
-      "3f4115c85513428941f614bb51bb7e05a125d3d17b7fda9fb36b0ec4d9f79b0c3ac3a7d5141bfbec4e93d9638879b1d27ab6f91df979e8b91c5dc314cb95129f";
-  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
-    generated = {
-      inherit version;
-      sources = { inherit url sha512; };
+    sources = {
+      url =
+        "https://download.cdn.mozilla.net/pub/firefox/releases/88.0b6/linux-x86_64/en-US/firefox-88.0b6.tar.bz2";
+      sha512 =
+        "3f4115c85513428941f614bb51bb7e05a125d3d17b7fda9fb36b0ec4d9f79b0c3ac3a7d5141bfbec4e93d9638879b1d27ab6f91df979e8b91c5dc314cb95129f";
     };
-  }).overrideAttrs (old: { src = super.fetchurl { inherit url sha512; }; }))
-  common;
+  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
+    generated = { inherit version sources; };
+  }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
 }
