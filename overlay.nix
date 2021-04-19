@@ -8,12 +8,12 @@ let
   };
 in {
   firefox-stable = let
-    version = "87.0";
+    version = "88.0";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/87.0/linux-x86_64/en-US/firefox-87.0.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/88.0/linux-x86_64/en-US/firefox-88.0.tar.bz2";
       sha512 =
-        "4958637e4f5f73d7c7ceab2a0c4fd1aa1c88954432320432a7707e6de042349cee1aac2af3afc8548a88fb00f2e4023a80a7f2cea4383d3ea43aeeaaff94a9b3";
+        "c175be02ddb8881a6cdb06d50c63776f77e4541f8df82d4de62c870c255fe5fb30c8e34831b2573c7b8bd9ef0ffe533245fdc4ef1a083acede5313ae08e31d81";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
