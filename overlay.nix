@@ -40,4 +40,15 @@ in {
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
+  firefox-nightly = let
+    version = "89.0a1";
+    sources = {
+      url =
+        "https://download.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-89.0a1.en-US.linux-x86_64.tar.bz2";
+      sha512 =
+        "5cf6b591a37fc764f72824ba2782af2ba1335a479243b2f6a5cbfa4a50091ddbac6f8cb8ef93ec1447a40a889ee55dd4194e07fa717077c96ad1af8933551160";
+    };
+  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
+    generated = { inherit version sources; };
+  }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
 }
