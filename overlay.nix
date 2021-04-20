@@ -18,6 +18,17 @@ in {
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
+  firefox-esr = let
+    version = "78.10.0esr";
+    sources = {
+      url =
+        "https://download.cdn.mozilla.net/pub/firefox/releases/78.10.0esr/linux-x86_64/en-US/firefox-78.10.0esr.tar.bz2";
+      sha512 =
+        "c175be02ddb8881a6cdb06d50c63776f77e4541f8df82d4de62c870c255fe5fb30c8e34831b2573c7b8bd9ef0ffe533245fdc4ef1a083acede5313ae08e31d81";
+    };
+  in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
+    generated = { inherit version sources; };
+  }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
     version = "88.0b9";
     sources = {
