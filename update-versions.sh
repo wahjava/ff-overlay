@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash --pure -p jq -p curl -p git -p nixfmt -p bash
+#!/usr/bin/env bash
 
 set -euo pipefail
 
