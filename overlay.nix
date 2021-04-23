@@ -30,23 +30,23 @@ in {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
-    version = "88.0b9";
+    version = "89.0b3";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/88.0b9/linux-x86_64/en-US/firefox-88.0b9.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/89.0b3/linux-x86_64/en-US/firefox-89.0b3.tar.bz2";
       sha512 =
-        "663b1305139dc983920176d0e590acb832b2c1b446e37080eb0b776da48a0f5a06954fde70e647e3c63cb3e5f27aa07e40e0cbf5f83ef0e888a005007644aa00";
+        "97ac04f2869f24934271e1f4e5c7606ed79ba6469ace7fcd78ae88a325727f963909f181681581dccf955cf2d01c96fd0cf4b58d0673e828525bd7f678b4b847";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-nightly = let
-    version = "89.0a1";
+    version = "90.0a1";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-89.0a1.en-US.linux-x86_64.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-90.0a1.en-US.linux-x86_64.tar.bz2";
       sha512 =
-        "5cf6b591a37fc764f72824ba2782af2ba1335a479243b2f6a5cbfa4a50091ddbac6f8cb8ef93ec1447a40a889ee55dd4194e07fa717077c96ad1af8933551160";
+        "eff97568f8405aeb9015f0e43eb38982643b91c7eff3206436e61d6876483ace9f3e9746fc0ac398a839b267e586d798180716ffe75adccc4537c00182e3ec36";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
