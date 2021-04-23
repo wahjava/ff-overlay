@@ -46,7 +46,7 @@ in {
       url =
         "https://download.cdn.mozilla.net/pub/firefox/nightly/latest-mozilla-central/firefox-90.0a1.en-US.linux-x86_64.tar.bz2";
       sha512 =
-        "eff97568f8405aeb9015f0e43eb38982643b91c7eff3206436e61d6876483ace9f3e9746fc0ac398a839b267e586d798180716ffe75adccc4537c00182e3ec36";
+        "af33e3a0f76f0dc10a81b58f681755bb25fe41d07ff242c647dbb1108d06c8cee22611ea898e4f2f8e616f11de28e5a872dc49b3bc2192c12ef284d4c6aa773b";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
