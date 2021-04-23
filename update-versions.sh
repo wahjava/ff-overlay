@@ -94,7 +94,7 @@ in {
 }
 EOF
 
-if ! diff -u $OVERLAY_FILE ./overlay.nix; then
+if ! diff -q $OVERLAY_FILE ./overlay.nix >/dev/null; then
   cat $OVERLAY_FILE >overlay.nix
   git commit -m '[automated] Update' ./overlay.nix
 else
