@@ -8,12 +8,12 @@ let
   };
 in {
   firefox-stable = let
-    version = "89.0.1";
+    version = "89.0.2";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/89.0.1/linux-x86_64/en-US/firefox-89.0.1.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/89.0.2/linux-x86_64/en-US/firefox-89.0.2.tar.bz2";
       sha512 =
-        "a667b38b482350b211f805912548c5da21f32f9f8777b3d83d81f7ae2f7b5beeb2b67eb8a30fe448b993ddce951de12668c2fd6382e56877055e2c26b5563779";
+        "9ab9ef926e3d3e042eff38a3e75ea55f736032abea48d391cab28efed542c7715987cbac33745b186b5996fa038b732f5c6f4ebe9e6a101b4e13dcf540fbf275";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
@@ -24,7 +24,7 @@ in {
       url =
         "https://download.cdn.mozilla.net/pub/firefox/releases/78.11.0esr/linux-x86_64/en-US/firefox-78.11.0esr.tar.bz2";
       sha512 =
-        "a667b38b482350b211f805912548c5da21f32f9f8777b3d83d81f7ae2f7b5beeb2b67eb8a30fe448b993ddce951de12668c2fd6382e56877055e2c26b5563779";
+        "9ab9ef926e3d3e042eff38a3e75ea55f736032abea48d391cab28efed542c7715987cbac33745b186b5996fa038b732f5c6f4ebe9e6a101b4e13dcf540fbf275";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
