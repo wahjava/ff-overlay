@@ -35,12 +35,12 @@ in {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
-    version = "94.0b7";
+    version = "94.0b8";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/94.0b7/linux-x86_64/en-US/firefox-94.0b7.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/94.0b8/linux-x86_64/en-US/firefox-94.0b8.tar.bz2";
       sha512 =
-        "a1bfaae52d4cdc79b388d2d601aa42f169e97a3a546505acae783888c291be5fc16a81ff7c725f4f85c658f0157c95f2cd4240eca735a1ad3c709fba16266fbd";
+        "f889755362677e7f8a07516bebec30c8553f9797caf83e076e19ec46cfd78044406b6d2546d05eb56186b5d8a50385251277423765a9baa75cdde4d616828fcf";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
