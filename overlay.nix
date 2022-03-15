@@ -13,23 +13,23 @@ let
   };
 in {
   firefox-stable = let
-    version = "98.0";
+    version = "98.0.1";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/98.0/linux-x86_64/en-US/firefox-98.0.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/98.0.1/linux-x86_64/en-US/firefox-98.0.1.tar.bz2";
       sha512 =
-        "3e26fddb16c9c16fa16bcc5292ee67c301374cd729643b08f4004fb63c234bad0ebb95760f33a77e02174ec51efb57fdfe176a9de10109dfb333015f7e82e2c8";
+        "ebb7fa6357c12c18bc5c2ce686940b8c8532b4914eec560b8376d484569322811a3f12d5a4f4a84f7077e859ba4277713cc94d6b964ff598fa2a096855ced239";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-esr = let
-    version = "91.7.0esr";
+    version = "91.7.1esr";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/91.7.0esr/linux-x86_64/en-US/firefox-91.7.0esr.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/91.7.1esr/linux-x86_64/en-US/firefox-91.7.1esr.tar.bz2";
       sha512 =
-        "3e26fddb16c9c16fa16bcc5292ee67c301374cd729643b08f4004fb63c234bad0ebb95760f33a77e02174ec51efb57fdfe176a9de10109dfb333015f7e82e2c8";
+        "ebb7fa6357c12c18bc5c2ce686940b8c8532b4914eec560b8376d484569322811a3f12d5a4f4a84f7077e859ba4277713cc94d6b964ff598fa2a096855ced239";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
