@@ -35,7 +35,7 @@ cat <<EOF |nixfmt >$OVERLAY_FILE
 self: super:
 let
   common = {
-    \${if super.firefox-unwrapped ? applicationName then "applicationName" else "browserName"} = "firefox";
+    applicationName = "firefox";
     pname = "firefox-bin";
     desktopName = "Firefox";
   };
