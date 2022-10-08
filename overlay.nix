@@ -8,12 +8,12 @@ let
   };
 in {
   firefox-stable = let
-    version = "105.0.2";
+    version = "105.0.3";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/105.0.2/linux-x86_64/en-US/firefox-105.0.2.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/105.0.3/linux-x86_64/en-US/firefox-105.0.3.tar.bz2";
       sha512 =
-        "415c070f5381c0b7a2179efdc3ebcbb25b6ba965b433597e43388a25e91544e8d36cc87e34e3d77b70f6a0851ef302d7a10b0587689493dd55609bc32b257c9f";
+        "6679249c2cfc092e65a292036a1e48b6e47402f4ff464be222d2952194d138cee7991f8282c28b2ac76c17fc98d2307aeb2d6ebfb293b9f0c731d0c01989aae8";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
@@ -24,7 +24,7 @@ in {
       url =
         "https://download.cdn.mozilla.net/pub/firefox/releases/102.3.0esr/linux-x86_64/en-US/firefox-102.3.0esr.tar.bz2";
       sha512 =
-        "415c070f5381c0b7a2179efdc3ebcbb25b6ba965b433597e43388a25e91544e8d36cc87e34e3d77b70f6a0851ef302d7a10b0587689493dd55609bc32b257c9f";
+        "6679249c2cfc092e65a292036a1e48b6e47402f4ff464be222d2952194d138cee7991f8282c28b2ac76c17fc98d2307aeb2d6ebfb293b9f0c731d0c01989aae8";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
