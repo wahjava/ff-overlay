@@ -8,12 +8,12 @@ let
   };
 in {
   firefox-stable = let
-    version = "107.0";
+    version = "107.0.1";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/107.0/linux-x86_64/en-US/firefox-107.0.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/107.0.1/linux-x86_64/en-US/firefox-107.0.1.tar.bz2";
       sha512 =
-        "0e9725d40278703545187178a1104d0ed0f0b08d61444b95e0f51b66f2f9ae8313d8cda4e19665e05bf27660dd18166b37c0bd1a523185dbc0f81dbc5edc5915";
+        "8dea32a5aa37d500c959481f1e01cc7f5ee881ff67cf0d79bf0ea39fe686fa51379f87842ca068f8b5f1d5f4199ff692abf7b436880cc0261f464009bd3e9287";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
@@ -24,18 +24,18 @@ in {
       url =
         "https://download.cdn.mozilla.net/pub/firefox/releases/102.5.0esr/linux-x86_64/en-US/firefox-102.5.0esr.tar.bz2";
       sha512 =
-        "0e9725d40278703545187178a1104d0ed0f0b08d61444b95e0f51b66f2f9ae8313d8cda4e19665e05bf27660dd18166b37c0bd1a523185dbc0f81dbc5edc5915";
+        "8dea32a5aa37d500c959481f1e01cc7f5ee881ff67cf0d79bf0ea39fe686fa51379f87842ca068f8b5f1d5f4199ff692abf7b436880cc0261f464009bd3e9287";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
-    version = "108.0b7";
+    version = "108.0b8";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/108.0b7/linux-x86_64/en-US/firefox-108.0b7.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/108.0b8/linux-x86_64/en-US/firefox-108.0b8.tar.bz2";
       sha512 =
-        "f33166b1cc24480443abfd45d17345c5833df1e6e8eed4b78b9aa74df3bcda83b71c929d76d56d0cc0469b0e73af7dd842077d5a185527da8e3c355edb35e39f";
+        "78d583b8f9047e6f8e02813570177fe8082d18640a1b35e04d3b34690a3659ef98c53cad544c029cf9cdf6bfad303aa4a6b3b2a0bf4f54081cba425c69cced34";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
