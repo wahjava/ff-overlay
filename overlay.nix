@@ -8,23 +8,23 @@ let
   };
 in {
   firefox-stable = let
-    version = "110.0.1";
+    version = "111.0";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/110.0.1/linux-x86_64/en-US/firefox-110.0.1.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/111.0/linux-x86_64/en-US/firefox-111.0.tar.bz2";
       sha512 =
-        "49d402057ec7068adb3402e2fead823724e5eae6e5827c6233e5ddb899f442a976ada16f8cff20ca53cb8aea96d02a50e906d2f75a836d980ae7b3a6d2da2796";
+        "c55c7e654aa8a5045ea7f39378c546276f3e42c8e594cbce222038ed2cde69933cb935dbab6e9c612c7dc04da7ce5d423577384c221c4b337ee2320547483919";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-esr = let
-    version = "102.8.0esr";
+    version = "102.9.0esr";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/102.8.0esr/linux-x86_64/en-US/firefox-102.8.0esr.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/102.9.0esr/linux-x86_64/en-US/firefox-102.9.0esr.tar.bz2";
       sha512 =
-        "49d402057ec7068adb3402e2fead823724e5eae6e5827c6233e5ddb899f442a976ada16f8cff20ca53cb8aea96d02a50e906d2f75a836d980ae7b3a6d2da2796";
+        "c55c7e654aa8a5045ea7f39378c546276f3e42c8e594cbce222038ed2cde69933cb935dbab6e9c612c7dc04da7ce5d423577384c221c4b337ee2320547483919";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
