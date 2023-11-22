@@ -8,34 +8,34 @@ let
   };
 in {
   firefox-stable = let
-    version = "119.0.1";
+    version = "120.0";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/119.0.1/linux-x86_64/en-US/firefox-119.0.1.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/120.0/linux-x86_64/en-US/firefox-120.0.tar.bz2";
       sha512 =
-        "2db8625dc5a8cdeb6f1ea5ae080116987b1f5cccf6c1eed3c31aaddce72a3a2ad34361f20161350413234e4d80189d9cdf384ad06a9e3033bc42fb1b81fd3402";
+        "64cbde0cbfeae76b485844f895f2d62ec1f1a646e557c2a0dddc7a7b01a24d672fe572cd1376eaaa6bd8faebea90e54a5d06fe0afb2f090fddb21d99711cf727";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-esr = let
-    version = "115.4.0esr";
+    version = "115.5.0esr";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/115.4.0esr/linux-x86_64/en-US/firefox-115.4.0esr.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/115.5.0esr/linux-x86_64/en-US/firefox-115.5.0esr.tar.bz2";
       sha512 =
-        "2db8625dc5a8cdeb6f1ea5ae080116987b1f5cccf6c1eed3c31aaddce72a3a2ad34361f20161350413234e4d80189d9cdf384ad06a9e3033bc42fb1b81fd3402";
+        "64cbde0cbfeae76b485844f895f2d62ec1f1a646e557c2a0dddc7a7b01a24d672fe572cd1376eaaa6bd8faebea90e54a5d06fe0afb2f090fddb21d99711cf727";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
   }).overrideAttrs (old: { src = super.fetchurl sources; })) common;
   firefox-devel = let
-    version = "120.0b9";
+    version = "121.0b1";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/120.0b9/linux-x86_64/en-US/firefox-120.0b9.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/121.0b1/linux-x86_64/en-US/firefox-121.0b1.tar.bz2";
       sha512 =
-        "25436f305546c3913d5a4ea78dc1266b12033204621671633d9a877a44f7ad893c16857456aaa09cd4aa53749827243eecf87e14fa2dfd349b4937665f5110df";
+        "200b96c55e0a23a5293c3db3f26d7faadc3566c9a29a3b03197cab5b741b22d132b2b8844f3bac1976a79e42f9c507fc2003378181eb9505545146be2f6eb8b5";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
