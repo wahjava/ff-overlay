@@ -8,12 +8,12 @@ let
   };
 in {
   firefox-stable = let
-    version = "123.0";
+    version = "123.0.1";
     sources = {
       url =
-        "https://download.cdn.mozilla.net/pub/firefox/releases/123.0/linux-x86_64/en-US/firefox-123.0.tar.bz2";
+        "https://download.cdn.mozilla.net/pub/firefox/releases/123.0.1/linux-x86_64/en-US/firefox-123.0.1.tar.bz2";
       sha512 =
-        "9ab94d078ef9178e2b12ab8aa114eb6f84ea7c9b3055e552156764019a13aeb39fff91f9b402156c5c12b6053df14228bbffffe81199dc6ef967d21fb5a962ba";
+        "17c2042c14a9fe841ea3ac86533530e944ff2893246a9f7a42c5053c70a5511e0854c3c4347be146c17adefc380967ef9cc627cb2f8e8d374787ca08984c3d34";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
@@ -24,7 +24,7 @@ in {
       url =
         "https://download.cdn.mozilla.net/pub/firefox/releases/115.8.0esr/linux-x86_64/en-US/firefox-115.8.0esr.tar.bz2";
       sha512 =
-        "9ab94d078ef9178e2b12ab8aa114eb6f84ea7c9b3055e552156764019a13aeb39fff91f9b402156c5c12b6053df14228bbffffe81199dc6ef967d21fb5a962ba";
+        "17c2042c14a9fe841ea3ac86533530e944ff2893246a9f7a42c5053c70a5511e0854c3c4347be146c17adefc380967ef9cc627cb2f8e8d374787ca08984c3d34";
     };
   in super.wrapFirefox ((self.firefox-bin-unwrapped.override {
     generated = { inherit version sources; };
