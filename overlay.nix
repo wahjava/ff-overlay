@@ -10,10 +10,10 @@ in
 {
   firefox-stable =
     let
-      version = "126.0.1";
+      version = "127.0";
       sources = {
-        url = "https://download.cdn.mozilla.net/pub/firefox/releases/126.0.1/linux-x86_64/en-US/firefox-126.0.1.tar.bz2";
-        sha512 = "a1fd153324c21331860a363a00be6b46e2e6bb0cfab05a6482f0ce120a3f31bde97f780140987ea86de13c1ff68eff9d61e08941a471a637b31a70e58ce1925b";
+        url = "https://download.cdn.mozilla.net/pub/firefox/releases/127.0/linux-x86_64/en-US/firefox-127.0.tar.bz2";
+        sha512 = "56eb4ddd8b5b1993c24dcf3bc249fc3a6b15c3841fc3fac41ff90dfd926dc0977b6d681a4781879da2006c2eb43d0a4731e46599655a461e5562e584fb9c5672";
       };
     in
     super.wrapFirefox (
@@ -28,10 +28,10 @@ in
     ) common;
   firefox-esr =
     let
-      version = "115.11.0esr";
+      version = "115.12.0esr";
       sources = {
-        url = "https://download.cdn.mozilla.net/pub/firefox/releases/115.11.0esr/linux-x86_64/en-US/firefox-115.11.0esr.tar.bz2";
-        sha512 = "a1fd153324c21331860a363a00be6b46e2e6bb0cfab05a6482f0ce120a3f31bde97f780140987ea86de13c1ff68eff9d61e08941a471a637b31a70e58ce1925b";
+        url = "https://download.cdn.mozilla.net/pub/firefox/releases/115.12.0esr/linux-x86_64/en-US/firefox-115.12.0esr.tar.bz2";
+        sha512 = "56eb4ddd8b5b1993c24dcf3bc249fc3a6b15c3841fc3fac41ff90dfd926dc0977b6d681a4781879da2006c2eb43d0a4731e46599655a461e5562e584fb9c5672";
       };
     in
     super.wrapFirefox (
@@ -46,10 +46,10 @@ in
     ) common;
   firefox-devel =
     let
-      version = "127.0b9";
+      version = "128.0b2";
       sources = {
-        url = "https://download.cdn.mozilla.net/pub/firefox/releases/127.0b9/linux-x86_64/en-US/firefox-127.0b9.tar.bz2";
-        sha512 = "a3ed23a9ad12052ee2dd9be1bc26942ea7661972d6943a77e3c68d6ae7e60f76910283cf71647893682a64391b8ed42971183b5f6d1d7dbd0c3816503e0e8870";
+        url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.0b2/linux-x86_64/en-US/firefox-128.0b2.tar.bz2";
+        sha512 = "4172626da528a20650ae1c31fb8f8ac2a4d9b2ab243b4cf1c13f1ac7b1fa77385740870f1ef976a4d0685b1aeb6ee16705b265829af1db3a6918f60ecf3bb9b2";
       };
     in
     super.wrapFirefox (
