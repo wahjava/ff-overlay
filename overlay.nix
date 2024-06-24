@@ -46,10 +46,10 @@ in
     ) common;
   firefox-devel =
     let
-      version = "128.0b6";
+      version = "128.0b7";
       sources = {
-        url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.0b6/linux-x86_64/en-US/firefox-128.0b6.tar.bz2";
-        sha512 = "d654aa97017cf99d309c6676387d9145ba9586ec0f4387798df3a821847fdd059c25dfd10a01128da5f5a0961f2e9d4c50739e9a5d40bb21d96f6f608814d884";
+        url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.0b7/linux-x86_64/en-US/firefox-128.0b7.tar.bz2";
+        sha512 = "6ccbe98ff5d90cbbfee04c5a7234ef8f75bd12f7c8fccc73e43f6176f5e75fa6dc13025b0e7e39b9b6c5bda50f1136017ebb226bc1424383217cef9a6d2aa16e";
       };
     in
     super.wrapFirefox (
