@@ -81,9 +81,16 @@ EOF
 
 if ! diff -q $OVERLAY_FILE ./overlay.nix >/dev/null; then
   cat $OVERLAY_FILE >overlay.nix
-  git commit -m '[automated] Update' ./overlay.nix
+  if ! [[ "${CI:-false}" = true ]]; then
+    git commit -m '[automated] Update' ./overlay.nix
+  else
+    echo UPDATED=1 >>$GITHUB_OUTPUT
+  fi
 else
-  echo No changes to commit.
+  if [[ "${CI:-false}" = true ]]; then
+    echo "::notice no update available"
+    echo UPDATED=0 >>$GITHUB_OUTPUT
+  fi
 fi
 
 rm -f $JSON_FILE $OVERLAY_FILE
