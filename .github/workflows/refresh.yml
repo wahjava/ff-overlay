@@ -1,5 +1,6 @@
 name: Refresh firefox versions
 on:
+  workflow_dispatch:
   schedule:
     - cron: "11 */6 * * *"
 permissions:
