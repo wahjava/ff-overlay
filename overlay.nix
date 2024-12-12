@@ -21,9 +21,9 @@ in {
       .overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-esr = let
-    version = "128.5.1esr";
+    version = "128.5.2esr";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.5.1esr/linux-x86_64/en-US/firefox-128.5.1esr.tar.bz2";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.5.2esr/linux-x86_64/en-US/firefox-128.5.2esr.tar.bz2";
       sha512 = "6d0c1e3afb5382a31d8cab5107de8c6d9ac07b233cf76154113ad074f1d0f555ccdb56898cdfff2075c97a13670f7f00049f761875612b2196ff14c5752a0034";
     };
   in
