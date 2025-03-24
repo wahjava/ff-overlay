@@ -15,18 +15,18 @@ if [[ -z "$LATEST_FIREFOX_VERSION" || -z "$LATEST_FIREFOX_DEVEL_VERSION" || -z "
     exit 1
 fi
 
-LATEST_FIREFOX_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.bz2" { print $1; }')
-LATEST_FIREFOX_DEVEL_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_DEVEL_VERSION}'.tar.bz2" { print $1; }')
-LATEST_FIREFOX_ESR_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.bz2" { print $1; }')
+LATEST_FIREFOX_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
+LATEST_FIREFOX_DEVEL_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_DEVEL_VERSION}'.tar.xz" { print $1; }')
+LATEST_FIREFOX_ESR_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
 
 if [[ -z "$LATEST_FIREFOX_SHA512SUM" || -z "$LATEST_FIREFOX_DEVEL_SHA512SUM" || -z "$LATEST_FIREFOX_ESR_SHA512SUM" ]]; then
     echo Missing checksums
     exit 1
 fi
 
-LATEST_FIREFOX_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_VERSION}.tar.bz2"
-LATEST_FIREFOX_DEVEL_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_DEVEL_VERSION}.tar.bz2"
-LATEST_FIREFOX_ESR_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_ESR_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_ESR_VERSION}.tar.bz2"
+LATEST_FIREFOX_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_VERSION}.tar.xz"
+LATEST_FIREFOX_DEVEL_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_DEVEL_VERSION}.tar.xz"
+LATEST_FIREFOX_ESR_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_ESR_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_ESR_VERSION}.tar.xz"
 
 OVERLAY_FILE=$(mktemp)
 
