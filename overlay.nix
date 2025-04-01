@@ -21,9 +21,9 @@ in {
       .overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-esr = let
-    version = "128.8.1esr";
+    version = "128.9.0esr";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.8.1esr/linux-x86_64/en-US/firefox-128.8.1esr.tar.xz";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.9.0esr/linux-x86_64/en-US/firefox-128.9.0esr.tar.xz";
       sha512 = "1507e7f8b5df213ef6a6a1751583e49d1106b13763b6802005b9608d4eb12696ab0c418e929e3a4c422fc7faff896df98e57d9128061ac634f7ac7d9a64e51ef";
     };
   in
@@ -35,10 +35,10 @@ in {
       .overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-devel = let
-    version = "137.0b10";
+    version = "138.0b1";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/137.0b10/linux-x86_64/en-US/firefox-137.0b10.tar.xz";
-      sha512 = "975952bebbadf8690a7b339fab8a276409dbb6f24b1d55b65088f54acdea92d98e27b91a65efeeaaaf5357d14dc4e945253e8620bf467f896ba1ab7797befbc9";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/138.0b1/linux-x86_64/en-US/firefox-138.0b1.tar.xz";
+      sha512 = "2413cb2bdce2bbb9dde0df4c10e70fd9c96c85dbc95f0bed379f859e314694d98d9da58a16b6a56adb76214a2afcbf493256eaf2f121dcff4c0d71d3fdc122cd";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
