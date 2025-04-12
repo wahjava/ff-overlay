@@ -14,11 +14,10 @@ in {
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
-        generated = {
-          inherit version sources;
-        };
-      })
-      .overrideAttrs (old: {src = super.fetchurl sources;}))
+      generated = {
+        inherit version sources;
+      };
+    }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-esr = let
     version = "128.9.0esr";
@@ -28,11 +27,10 @@ in {
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
-        generated = {
-          inherit version sources;
-        };
-      })
-      .overrideAttrs (old: {src = super.fetchurl sources;}))
+      generated = {
+        inherit version sources;
+      };
+    }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-devel = let
     version = "138.0b6";
@@ -42,10 +40,9 @@ in {
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
-        generated = {
-          inherit version sources;
-        };
-      })
-      .overrideAttrs (old: {src = super.fetchurl sources;}))
+      generated = {
+        inherit version sources;
+      };
+    }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
 }
