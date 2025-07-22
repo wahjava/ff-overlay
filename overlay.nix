@@ -7,10 +7,10 @@ self: super: let
   };
 in {
   firefox-stable = let
-    version = "140.0.4";
+    version = "141.0";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/140.0.4/linux-x86_64/en-US/firefox-140.0.4.tar.xz";
-      sha512 = "910259f234bca1b43956c51e89e2c9bcc60eb937040bc3d2f777d389e07b2b27b69bc04aa21451b15dc726da15d00afceaa71d310f520cc5aac0eace1024c4a1";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/141.0/linux-x86_64/en-US/firefox-141.0.tar.xz";
+      sha512 = "21198756d0360053ff8389cd7cf11da785f01d07d85bde156bedee19fb5704db629a7f68220d59893a1f6d01c1796879f55af04caedb61bee05e9607077414aa";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
@@ -20,10 +20,10 @@ in {
     }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-esr = let
-    version = "128.12.0esr";
+    version = "128.13.0esr";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.12.0esr/linux-x86_64/en-US/firefox-128.12.0esr.tar.xz";
-      sha512 = "910259f234bca1b43956c51e89e2c9bcc60eb937040bc3d2f777d389e07b2b27b69bc04aa21451b15dc726da15d00afceaa71d310f520cc5aac0eace1024c4a1";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/128.13.0esr/linux-x86_64/en-US/firefox-128.13.0esr.tar.xz";
+      sha512 = "21198756d0360053ff8389cd7cf11da785f01d07d85bde156bedee19fb5704db629a7f68220d59893a1f6d01c1796879f55af04caedb61bee05e9607077414aa";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
@@ -33,10 +33,10 @@ in {
     }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-devel = let
-    version = "141.0b9";
+    version = "142.0b1";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/141.0b9/linux-x86_64/en-US/firefox-141.0b9.tar.xz";
-      sha512 = "51f8846325351706139bda22d037eb38b177c52d054b650401bf06cf5415ffd0cf2ccaeade8379d8aeb1e23675edcf4607b57bcb4c7d771944fc3c43b7b05426";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/142.0b1/linux-x86_64/en-US/firefox-142.0b1.tar.xz";
+      sha512 = "c7e321d0775a0cbf6cc5500f6f55ea61620b216e5bf62222804cc863d81c5af84eb023e3d3420f4c27efaf8deb8c9f0b232f24306fe9980de21c63732fa63797";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
