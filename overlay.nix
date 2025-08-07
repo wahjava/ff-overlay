@@ -3,7 +3,6 @@ self: super: let
   common = {
     applicationName = "firefox";
     pname = "firefox-bin";
-    desktopName = "Firefox";
   };
 in {
   firefox-stable = let
