@@ -9,24 +9,28 @@ curl -o $JSON_FILE -s https://product-details.mozilla.org/1.0/firefox_versions.j
 LATEST_FIREFOX_VERSION=$(cat $JSON_FILE |jq -r .LATEST_FIREFOX_VERSION)
 LATEST_FIREFOX_DEVEL_VERSION=$(cat $JSON_FILE |jq -r .LATEST_FIREFOX_DEVEL_VERSION)
 LATEST_FIREFOX_ESR_VERSION=$(cat $JSON_FILE |jq -r .FIREFOX_ESR)
+UPDATED=0
 
 if [[ -z "$LATEST_FIREFOX_VERSION" || -z "$LATEST_FIREFOX_DEVEL_VERSION" || -z "$LATEST_FIREFOX_ESR_VERSION" ]]; then
     echo Bad firefox_versions.json: $JSON_FILE
     exit 1
 fi
 
-LATEST_FIREFOX_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
-LATEST_FIREFOX_DEVEL_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_DEVEL_VERSION}'.tar.xz" { print $1; }')
-LATEST_FIREFOX_ESR_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-x86_64/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
+ARCHES="x86_64 aarch64"
+
+for ARCH in $ARCHES; do
+LATEST_FIREFOX_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-'$ARCH'/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
+LATEST_FIREFOX_DEVEL_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/SHA512SUMS | awk '$2 == "linux-'$ARCH'/en-US/firefox-'${LATEST_FIREFOX_DEVEL_VERSION}'.tar.xz" { print $1; }')
+LATEST_FIREFOX_ESR_SHA512SUM=$(curl -s https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/SHA512SUMS | awk '$2 == "linux-'$ARCH'/en-US/firefox-'${LATEST_FIREFOX_VERSION}'.tar.xz" { print $1; }')
 
 if [[ -z "$LATEST_FIREFOX_SHA512SUM" || -z "$LATEST_FIREFOX_DEVEL_SHA512SUM" || -z "$LATEST_FIREFOX_ESR_SHA512SUM" ]]; then
     echo Missing checksums
     exit 1
 fi
 
-LATEST_FIREFOX_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_VERSION}.tar.xz"
-LATEST_FIREFOX_DEVEL_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_DEVEL_VERSION}.tar.xz"
-LATEST_FIREFOX_ESR_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_ESR_VERSION}/linux-x86_64/en-US/firefox-${LATEST_FIREFOX_ESR_VERSION}.tar.xz"
+LATEST_FIREFOX_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_VERSION}/linux-$ARCH/en-US/firefox-${LATEST_FIREFOX_VERSION}.tar.xz"
+LATEST_FIREFOX_DEVEL_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_DEVEL_VERSION}/linux-$ARCH/en-US/firefox-${LATEST_FIREFOX_DEVEL_VERSION}.tar.xz"
+LATEST_FIREFOX_ESR_TARBALL="https://download.cdn.mozilla.net/pub/firefox/releases/${LATEST_FIREFOX_ESR_VERSION}/linux-$ARCH/en-US/firefox-${LATEST_FIREFOX_ESR_VERSION}.tar.xz"
 
 OVERLAY_FILE=$(mktemp)
 
@@ -78,10 +82,21 @@ in {
 }
 EOF
 
-if ! diff -q $OVERLAY_FILE ./overlay.nix >/dev/null; then
-  cat $OVERLAY_FILE >overlay.nix
+NIX_FILE=${ARCH}-linux.nix
+
+if ! test -f ${NIX_FILE} || ! diff -q $OVERLAY_FILE ${NIX_FILE} >/dev/null; then
+  cat $OVERLAY_FILE >${NIX_FILE}
+  UPDATED=1
   if ! [[ "${CI:-false}" = true ]]; then
-    git commit -m '[automated] Update' ./overlay.nix
+    git add ${NIX_FILE}
+  fi
+  rm -f $OVERLAY_FILE
+fi
+done
+
+if [[ $UPDATED = 1 ]]; then
+  if ! [[ "${CI:-false}" = true ]]; then
+    git commit -m '[automated] Update'
   else
     echo UPDATED=1 >>$GITHUB_OUTPUT
   fi
@@ -92,4 +107,4 @@ else
   fi
 fi
 
-rm -f $JSON_FILE $OVERLAY_FILE
+rm -f $JSON_FILE

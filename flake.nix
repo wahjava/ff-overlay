@@ -4,7 +4,10 @@
   '';
 
   outputs = { nixpkgs, ... }: {
-    overlay = import ./overlay.nix;
+    overlay = {
+      x86_64-linux = import ./x86_64-linux.nix;
+      aarch64-linux = import ./aarch64-linux.nix;
+    };
 
     devShell."x86_64-linux" =
       let pkgs = import nixpkgs { system = "x86_64-linux"; };
