@@ -19,9 +19,9 @@ in {
     }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-esr = let
-    version = "140.3.0esr";
+    version = "140.3.1esr";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/140.3.0esr/linux-aarch64/en-US/firefox-140.3.0esr.tar.xz";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/140.3.1esr/linux-aarch64/en-US/firefox-140.3.1esr.tar.xz";
       sha512 = "e686149eb7fd1478cbe3d87e18b782af15f5f3a14db298c1fd853bcadf333df40ec069906cb6b34ee406a16862ae02620f8cdbbbcabc035a3b3ef81f35d6f0de";
     };
   in
