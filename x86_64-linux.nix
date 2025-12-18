@@ -6,10 +6,10 @@ self: super: let
   };
 in {
   firefox-stable = let
-    version = "146.0";
+    version = "146.0.1";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/146.0/linux-x86_64/en-US/firefox-146.0.tar.xz";
-      sha512 = "e5320c356e0ad7b24b7be4bfec89c7c3ad70f5977b30f9364f034d2217e02dd7d51bef2776a2205cc5125798bf3567ec8bc53515957118e48263a3d8fa2d3cad";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/146.0.1/linux-x86_64/en-US/firefox-146.0.1.tar.xz";
+      sha512 = "a8bf7577d4320ac38442c880af4b15dd90a11b09ac14080703258ce6916fcf73514fc6d91383bf9a4133cf1cd796762a84f718f80313ed0fdcd23cfa50629aaa";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
@@ -22,7 +22,7 @@ in {
     version = "140.6.0esr";
     sources = {
       url = "https://download.cdn.mozilla.net/pub/firefox/releases/140.6.0esr/linux-x86_64/en-US/firefox-140.6.0esr.tar.xz";
-      sha512 = "e5320c356e0ad7b24b7be4bfec89c7c3ad70f5977b30f9364f034d2217e02dd7d51bef2776a2205cc5125798bf3567ec8bc53515957118e48263a3d8fa2d3cad";
+      sha512 = "a8bf7577d4320ac38442c880af4b15dd90a11b09ac14080703258ce6916fcf73514fc6d91383bf9a4133cf1cd796762a84f718f80313ed0fdcd23cfa50629aaa";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
