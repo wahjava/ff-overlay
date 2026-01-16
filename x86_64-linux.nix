@@ -6,10 +6,10 @@ self: super: let
   };
 in {
   firefox-stable = let
-    version = "147.0";
+    version = "147.0.1";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/147.0/linux-x86_64/en-US/firefox-147.0.tar.xz";
-      sha512 = "7c4ba0481e5f590bb9b07d8157b3b1ea8f09e2d961468c5a6a466d10fadb08cb8eac4602b359f915dcfba48283f0f0b0c827d98ae3318aa831ab6d418821c5e2";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/147.0.1/linux-x86_64/en-US/firefox-147.0.1.tar.xz";
+      sha512 = "95e24ad83cf7b2cf8b4a243d4d9245a8e96c8ceb827a32a1ee6de1781dabbf8a3eb14c483f5c05926cf12d489b51bbad650ed99c561c72424bf743362da3ebb7";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
@@ -22,7 +22,7 @@ in {
     version = "140.7.0esr";
     sources = {
       url = "https://download.cdn.mozilla.net/pub/firefox/releases/140.7.0esr/linux-x86_64/en-US/firefox-140.7.0esr.tar.xz";
-      sha512 = "7c4ba0481e5f590bb9b07d8157b3b1ea8f09e2d961468c5a6a466d10fadb08cb8eac4602b359f915dcfba48283f0f0b0c827d98ae3318aa831ab6d418821c5e2";
+      sha512 = "95e24ad83cf7b2cf8b4a243d4d9245a8e96c8ceb827a32a1ee6de1781dabbf8a3eb14c483f5c05926cf12d489b51bbad650ed99c561c72424bf743362da3ebb7";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
@@ -32,10 +32,10 @@ in {
     }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-devel = let
-    version = "148.0b2";
+    version = "148.0b3";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/148.0b2/linux-x86_64/en-US/firefox-148.0b2.tar.xz";
-      sha512 = "61ca10b56b99b9c1e77d3123c54ecb2ede090f243a6597c5758e3a68fffc933ca04df277fff65fbc64fd60f88c985453fc97b6738e883dababb2179423abe707";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/148.0b3/linux-x86_64/en-US/firefox-148.0b3.tar.xz";
+      sha512 = "3d7ae7ea8e2fac525a95e62d1e9664512ed31acd0d23804b079cf906c98174ccd5d75954656169662656754728443f1c4510c712cbdb3c580003d8ec9633c238";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
