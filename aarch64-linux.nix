@@ -32,10 +32,10 @@ in {
     }).overrideAttrs (old: {src = super.fetchurl sources;}))
     common;
   firefox-devel = let
-    version = "150.0b6";
+    version = "150.0b7";
     sources = {
-      url = "https://download.cdn.mozilla.net/pub/firefox/releases/150.0b6/linux-aarch64/en-US/firefox-150.0b6.tar.xz";
-      sha512 = "86d682655950fbfee56d4ef0cd9766d51feb06d6593c99b6e01f631e0b818cb6a981caccdbb3f19890484ae6cd2e4b927891f79d5bbb58aef704112bac6dfee8";
+      url = "https://download.cdn.mozilla.net/pub/firefox/releases/150.0b7/linux-aarch64/en-US/firefox-150.0b7.tar.xz";
+      sha512 = "6a02e15dff346737bdbc93564c8bf404398bf79c895959205e45a82681fdd3d49821b138a52a64927b3a19d0ac420541f7a7d817be02afaea375cdf76aaf0601";
     };
   in
     super.wrapFirefox ((self.firefox-bin-unwrapped.override {
